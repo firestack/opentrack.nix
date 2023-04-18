@@ -49,6 +49,7 @@ in
       "-DCMAKE_BUILD_TYPE=RELEASE"
       "-DSDK_ARUCO_LIBPATH=${aruco}/lib/libaruco.a"
       "-DSDK_XPLANE=${xplaneSdk}"
+      "-DSDK_WINE=ON"
     ];
 
     postInstall = ''
