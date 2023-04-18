@@ -1,5 +1,5 @@
 {
-  mkDerivation,
+  stdenv_32bit,
   lib,
   callPackage,
   fetchzip,
@@ -28,7 +28,7 @@
     sha256 = "11wqjsr996c5qhiv2djsd55gc373a9qcq30dvc6rhzm0fys42zba";
   };
 in
-  mkDerivation {
+  stdenv_32bit.mkDerivation {
     pname = "opentrack";
     inherit version;
 
