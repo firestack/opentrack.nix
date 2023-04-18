@@ -17,6 +17,8 @@
   libevdev,
   makeDesktopItem,
   fetchurl,
+
+  wine,
 }: let
   version = "2022.3.0";
 
@@ -40,7 +42,7 @@ in
     };
 
     nativeBuildInputs = [cmake pkg-config ninja copyDesktopItems];
-    buildInputs = [qtbase qttools opencv4 procps eigen libXdmcp libevdev aruco];
+    buildInputs = [qtbase qttools opencv4 procps eigen libXdmcp libevdev aruco wine];
 
     NIX_CFLAGS_COMPILE = "-Wall -Wextra -Wpedantic -ffast-math -O3";
     dontWrapQtApps = true;
