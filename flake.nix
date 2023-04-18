@@ -14,10 +14,11 @@
           };
         in
     {
-      devShell =
-        pkgs.devshell.mkShell {
-          imports = [ (pkgs.devshell.importTOML ./devshell.toml) ];
+      devShells = rec {
+        devshell = pkgs.devshell.mkShell {
         };
+        default = devshell;
+      };
 
       packages = rec {
         opentrack = pkgs.libsForQt5.callPackage ./default.nix {};
