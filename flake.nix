@@ -21,7 +21,9 @@
       };
 
       packages = rec {
-        opentrack = pkgs.libsForQt5.callPackage ./default.nix {};
+        opentrack = pkgs.libsForQt5.callPackage ./default.nix {
+          wine = pkgs.wine64;
+        };
         default = opentrack;
       };
     });
