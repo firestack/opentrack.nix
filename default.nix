@@ -25,6 +25,8 @@
   qtbase,
   qttools,
 }:
+assert wine.meta.mainProgram == "wine64" -> stdenv.is64bit;
+assert wine.meta.mainProgram == "wine" -> stdenv.is32bit;
 let
   aruco = callPackage ./aruco.nix {};
 
