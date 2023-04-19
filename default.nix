@@ -17,6 +17,7 @@
   libevdev,
   makeDesktopItem,
   fetchurl,
+  wrapQtAppsHook,
 
   wine,
 }: let
@@ -41,11 +42,10 @@ in
       sha256 = "sha256-8gpNORTJclYUYp57Vw/0YO3XC9Idurt0a79fhqx0+mo=";
     };
 
-    nativeBuildInputs = [cmake pkg-config ninja copyDesktopItems];
+    nativeBuildInputs = [cmake pkg-config ninja copyDesktopItems wrapQtAppsHook];
     buildInputs = [qtbase qttools opencv4 procps eigen libXdmcp libevdev aruco wine];
 
     NIX_CFLAGS_COMPILE = "-Wall -Wextra -Wpedantic -ffast-math -O3";
-    dontWrapQtApps = true;
 
     cmakeFlags = [
       "-DCMAKE_BUILD_TYPE=RELEASE"
@@ -54,6 +54,7 @@ in
       "-DSDK_WINE=ON"
     ];
 
+    dontWrapQtApps = true;
     postInstall = ''
       wrapQtApp $out/bin/opentrack
     '';
