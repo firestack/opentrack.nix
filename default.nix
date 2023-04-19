@@ -1,5 +1,8 @@
 {
 
+  version,
+  src,
+
   stdenv,
   wine,
 
@@ -38,14 +41,8 @@ let
 in
   stdenv.mkDerivation {
     pname = "opentrack";
-    inherit version;
 
-    src = fetchFromGitHub {
-      owner = "opentrack";
-      repo = "opentrack";
-      rev = "opentrack-${version}";
-      sha256 = "sha256-8gpNORTJclYUYp57Vw/0YO3XC9Idurt0a79fhqx0+mo=";
-    };
+    inherit version src;
 
     nativeBuildInputs = [cmake pkg-config ninja copyDesktopItems wrapQtAppsHook];
     buildInputs = [qtbase qttools opencv4 procps eigen libXdmcp libevdev aruco wine];
