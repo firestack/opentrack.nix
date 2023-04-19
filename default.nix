@@ -1,28 +1,31 @@
 {
+
   stdenv,
+  wine,
+
   lib,
   callPackage,
-  fetchzip,
-  fetchFromGitHub,
+
   cmake,
-  pkg-config,
-  ninja,
   copyDesktopItems,
-  qtbase,
-  qttools,
-  opencv4,
-  procps,
-  eigen,
-  libXdmcp,
-  libevdev,
-  makeDesktopItem,
+  fetchFromGitHub,
   fetchurl,
+  fetchzip,
+  makeDesktopItem,
+  ninja,
+  pkg-config,
   wrapQtAppsHook,
 
-  wine,
-}: let
-  version = "2022.3.0";
 
+  eigen,
+  libevdev,
+  libXdmcp,
+  opencv4,
+  procps,
+  qtbase,
+  qttools,
+}:
+let
   aruco = callPackage ./aruco.nix {};
 
   # license.txt inside the zip file is MIT
